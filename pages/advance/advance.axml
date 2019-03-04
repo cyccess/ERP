@@ -9,21 +9,45 @@
     <view class="detail">
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">项目编号</view>
+          <view class="d-label-txt">借款人</view>
         </view>
-        <view class="d-value">201902201105546223210</view>
+        <view class="d-value">重庆惠今科技有限公司</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">垫付金额</view>
+          <view class="d-label-txt">借款账户</view>
+        </view>
+        <view class="d-value">hjkj</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">浙商本息</view>
         </view>
         <view class="d-value">300,000.00</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">借款人</view>
+          <view class="d-label-txt">第三方借款本息</view>
         </view>
-        <view class="d-value">翟天临</view>
+        <view class="d-value">300,000.00</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">浙商还款</view>
+        </view>
+        <view class="d-value">0.00</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">浦发打款</view>
+        </view>
+        <view class="d-value">48515.00</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">垫付金额</view>
+        </view>
+        <view class="d-value">48515.00</view>
       </view>
       <view class="d-item">
         <view class="d-label">
@@ -33,15 +57,9 @@
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">垫付时间</view>
+          <view class="d-label-txt">申请说明</view>
         </view>
-        <view class="d-value">2019-02-20</view>
-      </view>
-      <view class="d-item">
-        <view class="d-label">
-          <view class="d-label-txt">还垫原因</view>
-        </view>
-        <view class="d-value">借款人未及时打款</view>
+        <view class="d-value">借款人于2019年2月28日想浦发还款专户还款31838.47元，扣除16677.03元，剩余不足部分申请使用担保公司保证金进行临时垫付。</view>
       </view>
     </view>
   </view>
@@ -61,7 +79,7 @@
     </view>
   </view>
 
-  <view style="height:118px"></view>
+  <view style="height:48px"></view>
 
   <view class="adv-action-wrapper">
     <view class="adv-actions">
