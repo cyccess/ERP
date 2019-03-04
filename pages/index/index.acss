@@ -1,0 +1,49 @@
+.i-sign-wrapper {
+  display: flex;
+  background-color: #fff;
+}
+
+.i-sign {
+  flex: 1;
+  padding: .5rem 0;
+  text-align: center;
+}
+
+.i-sign-icon {
+  color: #ff943e;
+}
+
+.i-sign-txt {
+  padding-top: 5px;
+  font-size: 13px;
+  color: rgba(25, 31, 37, 0.72);
+}
+
+.i-sign-panel {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+.i-sign-title {
+  color: rgba(25, 31, 37, 1);
+  font-size: 18px;
+  padding: 15px 0 15px 15px;
+}
+
+.i-sign-row {
+  display: flex;
+}
+
+.i-sign-item {
+  width: 25%;
+}
+
+.i-sign-con {
+  text-align: center;
+}
+
+.i-sign-con .i-sign-icon text {
+  color: #fff;
+  border-radius: 5px;
+}

@@ -1,0 +1,32 @@
+.adv-action-wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.adv-opinion {
+  padding: 15px;
+  margin-top: 15px;
+  background: #fff;
+}
+
+.adv-opinion-text {
+  /* border-bottom: 1px solid rgba(25, 31, 37, .08); */
+}
+
+.adv-actions {
+  padding: 15px 10px;
+}
+
+.adv-sign {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+.adv-sign-head {
+  font-size: 20px;
+  padding-bottom: 15px;
+}

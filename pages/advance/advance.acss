@@ -1,0 +1,96 @@
+@import '/util/modal/index.acss';
+
+.adv-section {
+  padding: 15px;
+  background: rgb(255, 255, 255);
+  margin-bottom: 15px;
+}
+
+.title {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10px 0;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.state {
+  margin-top: 8px;
+  color: coral;
+}
+
+.detail {
+  padding: 10px 0;
+}
+
+.d-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.d-label {
+  flex: 0;
+  padding-right: 10px;
+}
+
+.d-label-txt {
+  width: 65px;
+  text-align: right;
+  color: #666;
+}
+
+.d-value {
+  flex: 1;
+}
+
+.adv-attachment {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.adv-attachment-head {
+  font-size: 20px;
+}
+
+.adv-file {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.adv-file-name {
+  flex: 1;
+}
+
+.adv-action-wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.adv-opinion {
+  padding: 0 15px;
+  margin-top: 5px;
+}
+
+.adv-opinion-text {
+  border-bottom: 1px solid rgba(25, 31, 37, .08);
+}
+
+.adv-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 15rpx 0;
+}
+
+.adv-actions button {
+  height: 32px;
+  line-height: 32px;
+  width: 75px;
+  margin-right: 15px;
+  ;
+}

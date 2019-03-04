@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="m-tabs-pane">
+    <view class="m-tabs">
+      <view class="m-tabs-ink-bar" style="width:{{itemWidth}}px ;transform: translate3d({{inkBar}}px, 0px, 0px);"></view>
+      <view class="m-tabs-item {{currentTabIndex==0?'m-tabs-item-active':''}}" data-index="0" onTap="onSelectTab">
+        待签批
+      </view>
+      <view class="m-tabs-item {{currentTabIndex==1?'m-tabs-item-active':''}}" data-index="1"  onTap="onSelectTab">
+        已签批
+      </view>
+    </view>
+  </view>
+  
+  <view class="m-tabs-con">
+    <view class="m-tab-pane" a:if="{{currentTabIndex == 0}}">
+      <view class="m-adv-item" a:for="{{list}}">
+        <navigator url="/pages/advance/advance">
+          <view class="m-adv-name">{{item.name + index}}</view>
+          <view class="m-adv-date">申请时间:{{item.date}}</view>
+          <view class="m-adv-status">{{item.status}}</view>
+        </navigator>
+      </view>
+    
+    </view>
+    <view class="m-tab-pane" a:if="{{currentTabIndex == 1}}">
+       <view class="m-adv-item">
+        <view class="m-adv-name">小成时光提交的垫付</view>
+        <view class="m-adv-date">申请时间:2019-02-12</view>
+        <view class="m-adv-status green">已签批</view>
+      </view>
+      <view class="m-adv-item">
+        <view class="m-adv-name">小成时光提交的垫付</view>
+        <view class="m-adv-date">申请时间:2019-02-12</view>
+        <view class="m-adv-status green">已签批</view>
+      </view>
+      <view class="m-adv-item">
+        <view class="m-adv-name">小成时光提交的垫付</view>
+        <view class="m-adv-date">申请时间:2019-02-12</view>
+        <view class="m-adv-status green">已签批</view>
+      </view>
+    </view>
+  </view>
+</view>

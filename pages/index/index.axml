@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="i-sign-wrapper">
+    <view class="i-sign">
+      <navigator url="/pages/advance-list/advance-list">
+        <view class="i-sign-icon">
+          <text class="icon icon-approval"></text>
+        </view>
+        <view class="i-sign-txt">
+          签批任务
+        </view>
+      </navigator>
+    </view>
+    <view class="i-sign">
+      <view class="i-sign-icon">
+        <text class="icon icon-initiate"></text>
+      </view>
+      <view class="i-sign-txt">我的发起</view>
+    </view>
+     <view class="i-sign">
+      <view class="i-sign-icon">
+        <text class="icon icon-chaosong"></text>
+      </view>
+      <view class="i-sign-txt">抄送我的</view>
+    </view>
+  </view>
+
+  <view class="i-sign-panel">
+    <view class="i-sign-title">贷贷兴隆</view>
+    <view class="i-sign-row">
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-index-1 bg-blue"></text>
+            </view>
+            <view class="i-sign-txt">垫付申请</view>
+        </view>
+      </view>
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-index-2 bg-orange"></text>
+            </view>
+            <view class="i-sign-txt">还垫申请</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="i-sign-panel">
+    <view class="i-sign-title">购购兴隆</view>
+    <view class="i-sign-row">
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-kaipiao bg-orange-1"></text>
+            </view>
+            <view class="i-sign-txt">开票申请</view>
+        </view>
+      </view>
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-adv-pay bg-green"></text>
+            </view>
+            <view class="i-sign-txt">结算</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

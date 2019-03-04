@@ -1,0 +1,81 @@
+page {
+  background-color: #F7F7F7;
+  border: 1px solid rgba(0,0,0,0);
+  box-sizing: border-box;
+}
+
+.page {
+  flex: 1 1 0%;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('//at.alicdn.com/t/font_1053398_o8xdfk0p4hs.woff?t=1551150605694') format('woff'),
+  url('//at.alicdn.com/t/font_1053398_o8xdfk0p4hs.ttf?t=1551150605694') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+.icon {
+  font-family: "iconfont" !important;
+  font-size: 48px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-approval:before {
+  content: "\e668";
+}
+
+.icon-initiate:before {
+  content: "\e615";
+}
+
+.icon-chaosong:before {
+  content: "\e613";
+}
+
+.icon-refuse:before {
+  content: "\e6a0";
+}
+
+.icon-agree:before {
+  content: "\e653";
+}
+
+.icon-adv-pay:before {
+  content: "\e788";
+}
+
+.icon-index-2:before {
+  content: "\e664";
+}
+
+.icon-index-1:before {
+  content: "\e66e";
+}
+
+
+.icon-kaipiao:before {
+  content: "\e636";
+}
+
+
+.bg-blue {
+  background-color: rgba(50, 150, 250, 1);
+}
+
+.bg-orange {
+  background-color: rgba(242, 88, 67, 1);
+}
+
+.bg-orange-1 {
+  background-color: rgba(255, 148, 62, 1);
+}
+
+.bg-green{
+  background-color: #15bc83;
+}
+
+.green{
+  color: #15bc83;
+}

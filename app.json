@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/advance-list/advance-list",
+    "pages/advance/advance",
+    "pages/preview-pdf/preview-pdf",
+    "pages/advance-sign/advance-sign"
+  ],
+  "window": {
+    "defaultTitle": "兴农鑫ERP",
+    "backgroundColor": "#F5F5F9"
+  }
+}

@@ -1,0 +1,17 @@
+<view class="page">
+
+  <view class="adv-opinion">
+      <textarea class="adv-opinion-text" placeholder="请输入签批理由" maxlength='60'/>
+  </view>
+
+  <view class="adv-sign">
+    <view class="adv-sign-head">签字</view>
+    <sign></sign>
+  </view>
+
+ <view class="adv-action-wrapper">
+    <view class="adv-actions">
+      <button type="primary" >同意</button>
+    </view>
+  </view>
+</view>

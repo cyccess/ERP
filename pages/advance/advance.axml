@@ -1,0 +1,74 @@
+<import src="/util/modal/index.axml"/>
+
+<view class="page">
+  <view class="adv-section">
+    <view class="title">
+      <view class="name">小成时光的垫付申请</view>
+      <view class="state">待签批</view>
+    </view>
+    <view class="detail">
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">项目编号</view>
+        </view>
+        <view class="d-value">201902201105546223210</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">垫付金额</view>
+        </view>
+        <view class="d-value">300,000.00</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">借款人</view>
+        </view>
+        <view class="d-value">翟天临</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">申请时间</view>
+        </view>
+        <view class="d-value">2019-02-20</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">垫付时间</view>
+        </view>
+        <view class="d-value">2019-02-20</view>
+      </view>
+      <view class="d-item">
+        <view class="d-label">
+          <view class="d-label-txt">还垫原因</view>
+        </view>
+        <view class="d-value">借款人未及时打款</view>
+      </view>
+    </view>
+  </view>
+  <view class="adv-attachment">
+    <view class="adv-attachment-head">附件</view>
+    <view class="adv-file">
+      <view class="adv-file-name">201902210012.pdf</view>
+      <view class="adv-file-download">
+          <button type="default" size="mini" plain onTap="previewPdf">查看</button>
+      </view>
+    </view>
+     <view class="adv-file">
+      <view class="adv-file-name">201902210012.pdf</view>
+      <view class="adv-file-download">
+          <button type="default" size="mini" plain onTap="previewPdf">查看</button>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:118px"></view>
+
+  <view class="adv-action-wrapper">
+    <view class="adv-actions">
+      <button type="default" onTap="refuseTap">拒绝</button>
+      <navigator url="/pages/advance-sign/advance-sign" redirect>
+        <button type="primary" onTap="onSignTap">同意</button>
+      </navigator>
+    </view>
+  </view>
+</view>

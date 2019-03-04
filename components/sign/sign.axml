@@ -1,0 +1,8 @@
+<view class="canvas-wrapper">
+  <canvas class="canvas" id="canvas" style="height:200px" onTouchStart="canvasStart" onTouchMove="canvasMove" onTouchEnd="canvasEnd" onTouchCancel="canvasEnd">
+  </canvas>
+
+  <view class="canvans-reset">
+     <button type="default" size="mini" plain onTap="cleardraw">重置</button>
+  </view>
+</view>
