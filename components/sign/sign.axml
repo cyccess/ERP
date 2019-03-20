@@ -3,6 +3,7 @@
   </canvas>
 
   <view class="canvans-reset">
-     <button type="default" size="mini" plain onTap="cleardraw">重置</button>
+    <button type="default" size="mini" plain onTap="cleardraw">清除重写</button>
+    <button type="primary" size="mini" onTap="cleardraw">确定提交</button>
   </view>
 </view>

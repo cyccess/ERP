@@ -3,67 +3,79 @@
 <view class="page">
   <view class="adv-section">
     <view class="title">
-      <view class="name">小成时光的垫付申请</view>
-      <view class="state">待签批</view>
+      <view class="name">{{proccessInfo.realName +'的垫付申请'}}</view>
+      <view class="state">{{currentTask.statusDesc}}</view>
     </view>
     <view class="detail">
       <view class="d-item">
         <view class="d-label">
           <view class="d-label-txt">借款人</view>
         </view>
-        <view class="d-value">重庆惠今科技有限公司</view>
+        <view class="d-value">{{model.borrowers}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">借款账户</view>
+          <view class="d-label-txt">应还浙商本息</view>
         </view>
-        <view class="d-value">hjkj</view>
+        <view class="d-value">{{model.totalEscrowAmount}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">浙商本息</view>
+          <view class="d-label-txt">应还第三方本息</view>
         </view>
-        <view class="d-value">300,000.00</view>
+        <view class="d-value">{{model.totalThirdAmount}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">第三方借款本息</view>
+          <view class="d-label-txt">浙商垫付本息</view>
         </view>
-        <view class="d-value">300,000.00</view>
+        <view class="d-value">{{model.applyEscrowAmount}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
-          <view class="d-label-txt">浙商还款</view>
+          <view class="d-label-txt">第三方垫付本息</view>
         </view>
-        <view class="d-value">0.00</view>
-      </view>
-      <view class="d-item">
-        <view class="d-label">
-          <view class="d-label-txt">浦发打款</view>
-        </view>
-        <view class="d-value">48515.00</view>
+        <view class="d-value">{{model.applyThirdAmount}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
           <view class="d-label-txt">垫付金额</view>
         </view>
-        <view class="d-value">48515.00</view>
+        <view class="d-value">{{model.totalPayAmount}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
           <view class="d-label-txt">申请时间</view>
         </view>
-        <view class="d-value">2019-02-20</view>
+        <view class="d-value">{{model.addTime}}</view>
       </view>
       <view class="d-item">
         <view class="d-label">
           <view class="d-label-txt">申请说明</view>
         </view>
-        <view class="d-value">借款人于2019年2月28日想浦发还款专户还款31838.47元，扣除16677.03元，剩余不足部分申请使用担保公司保证金进行临时垫付。</view>
+        <view class="d-value d-explan">{{model.recordApplyBorrowers[0].remark}}</view>
       </view>
     </view>
   </view>
-  <view class="adv-attachment">
+
+  <view class="sign-steps">
+    <view class="sign-step {{index===tasks.length-1?'is-flex':''}}" a:for="{{tasks}}" a:if="{{item.taskInfo}}">
+      <view class="sign-step_head">
+        <view class="sign-step_line"></view>
+        <view class="sign-step_txt">{{item.taskInfo.value.name}}</view>
+      </view>
+      <view class="sign-step_main">
+        <view class="sign-step_date">{{item.complatedDate}}</view>
+        <view class="sign-step_title">{{item.name}}</view>
+        <view class="sign-step_desc">
+          <text>{{item.taskInfo.value.fullName}}</text>
+          <text a:if="{{item.taskInfo.value.comment}}">({{item.taskInfo.value.comment}})</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="adv-attachment" hidden="true">
     <view class="adv-attachment-head">附件</view>
     <view class="adv-file">
       <view class="adv-file-name">201902210012.pdf</view>
@@ -84,7 +96,7 @@
   <view class="adv-action-wrapper">
     <view class="adv-actions">
       <button type="default" onTap="refuseTap">拒绝</button>
-      <navigator url="/pages/advance-sign/advance-sign" redirect>
+      <navigator url="/pages/advance-sign/advance-sign?task_id={{taskId}}" redirect>
         <button type="primary" onTap="onSignTap">同意</button>
       </navigator>
     </view>

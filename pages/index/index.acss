@@ -15,8 +15,8 @@
 
 .i-sign-txt {
   padding-top: 5px;
-  font-size: 13px;
-  color: rgba(25, 31, 37, 0.72);
+  font-size: 14px;
+  color: rgba(25, 31, 37, 1);
 }
 
 .i-sign-panel {
@@ -27,7 +27,6 @@
 
 .i-sign-title {
   color: rgba(25, 31, 37, 1);
-  font-size: 18px;
   padding: 15px 0 15px 15px;
 }
 

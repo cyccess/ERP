@@ -1,7 +1,4 @@
 {
-  "defaultTitle": "签字同意",
-  "allowsBounceVertical": "NO",
-  "usingComponents": {
-    "sign": "/components/sign/sign"
-  }
+  "defaultTitle": "签字确认",
+  "allowsBounceVertical": "NO"
 }

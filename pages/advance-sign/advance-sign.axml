@@ -1,17 +1,17 @@
-<view class="page">
+<view class="canvas-wrapper">
 
-  <view class="adv-opinion">
-      <textarea class="adv-opinion-text" placeholder="请输入签批理由" maxlength='60'/>
-  </view>
+  <view class="canvas-container">
+    <view class="canvas-actions">
+      <textarea class="txt-reason" placeholder="请输入签批理由" onInput="getComment" />
 
-  <view class="adv-sign">
-    <view class="adv-sign-head">签字</view>
-    <sign></sign>
-  </view>
+      <button type="default" plain onTap="cleardraw" class="btnReset">清除重写</button>
+      <button type="primary" onTap="submit" class="btnSubmit">确定提交</button>
+    </view>
 
- <view class="adv-action-wrapper">
-    <view class="adv-actions">
-      <button type="primary" >同意</button>
+    <view class="canvas-con">
+      <canvas class="canvas" id="canvas" onTouchStart="canvasStart" onTouchMove="canvasMove" onTouchEnd="canvasEnd" onTouchCancel="canvasEnd">
+      </canvas>
     </view>
   </view>
+
 </view>

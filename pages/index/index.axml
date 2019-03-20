@@ -5,16 +5,14 @@
         <view class="i-sign-icon">
           <text class="icon icon-approval"></text>
         </view>
-        <view class="i-sign-txt">
-          签批任务
-        </view>
+        <view class="i-sign-txt">我审批的</view>
       </navigator>
     </view>
     <view class="i-sign">
       <view class="i-sign-icon">
         <text class="icon icon-initiate"></text>
       </view>
-      <view class="i-sign-txt">我的发起</view>
+      <view class="i-sign-txt">我发起的</view>
     </view>
      <view class="i-sign">
       <view class="i-sign-icon">
@@ -68,5 +66,34 @@
     </view>
   </view>
 
+ <view class="i-sign-panel">
+    <view class="i-sign-title">财务</view>
+    <view class="i-sign-row">
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-baoxiao bg-orange"></text>
+            </view>
+            <view class="i-sign-txt">报销</view>
+        </view>
+      </view>
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-byj bg-orange"></text>
+            </view>
+            <view class="i-sign-txt">备用金申请</view>
+        </view>
+      </view>
 
+      <view class="i-sign-item">
+        <view class="i-sign-con">
+           <view class="i-sign-icon">
+              <text class="icon icon-payment bg-blue"></text>
+            </view>
+            <view class="i-sign-txt">付款申请</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

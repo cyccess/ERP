@@ -1,32 +1,74 @@
-.adv-action-wrapper {
-  position: fixed;
-  bottom: 0;
+page {
+  background: #fbfbfb;
+  height: auto;
+  overflow: hidden;
+}
+
+.canvas-wrapper {
+  box-sizing: border-box;
   width: 100%;
-  border-top: 1px solid #ddd;
-  background: #fff;
+  height: 99vh;
+  overflow: hidden;
 }
 
-.adv-opinion {
-  padding: 15px;
-  margin-top: 15px;
-  background: #fff;
+.canvas-container {
+  width: 100wh;
+  height: 95vh;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin: 20rpx;
+  box-sizing: border-box;
 }
 
-.adv-opinion-text {
-  /* border-bottom: 1px solid rgba(25, 31, 37, .08); */
+.canvas-con {
+  position: relative;
+  flex: 5;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.adv-actions {
-  padding: 15px 10px;
+.canvas {
+  width: 100%;
+  height: 95vh;
+  background: url(../../img/sign-bg.png) no-repeat center;
+  background-size: cover;
 }
 
-.adv-sign {
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #ffffff;
+.canvas-actions {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  border-right: 1px solid #ddd;
 }
 
-.adv-sign-head {
-  font-size: 20px;
-  padding-bottom: 15px;
+.btnReset {
+  position: absolute;
+  left: -35rpx;
+  bottom: 280rpx;
+  padding: 0 20rpx;
+  transform: rotate(90deg);
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.btnSubmit {
+  position: absolute;
+  left: -35rpx;
+  bottom: 80rpx;
+  padding: 0 20rpx;
+  transform: rotate(90deg);
+}
+
+.txt-reason {
+  position: absolute;
+  top: 320rpx;
+  left: -285rpx;
+  width: 700rpx;
+  padding: 0;
+  transform: rotate(90deg);
+  z-index: 1;
 }

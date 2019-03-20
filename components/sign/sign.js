@@ -8,7 +8,7 @@ Component({
     context: '',
     points: [],
     canvasWidth: 0,
-    canvasHeight: 200,
+    canvasHeight: 300,
   },
   props: {},
   didMount() {
@@ -60,7 +60,7 @@ Component({
     },
     cleardraw() {
       //清除画布
-      context.clearRect(0, 0, this.data.canvasWidth, this.data.canvasHeight);
+      context.clearRect(0, 0, this.data.canvasHeight, this.data.canvasWidth);
       context.beginPath();
       context.draw();
     },
