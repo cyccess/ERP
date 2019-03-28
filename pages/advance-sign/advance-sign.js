@@ -1,6 +1,8 @@
+import { host } from '../../config';
+
 // canvas 全局配置
-var context = null;// 使用 wx.createContext 获取绘图上下文 context
-var points = [];
+let context = null;// 使用 wx.createContext 获取绘图上下文 context
+let points = [];
 
 Page({
   data: {
@@ -10,13 +12,13 @@ Page({
     canvasHeight: 300,
     pixelRatio: 0,
     isSign: false, //是否已签字
-    taskId: 'ded74d9b-4a28-11e9-8cbb-30b49e2c7c0f',
+    taskId: '',
     comment: '同意', // 审批意见
-    approve: true // 是否同意
+    approve: true, // 是否同意
+    submitting: false,
   },
   onLoad(options) {
-
-    // this.data.taskId = options.task_id
+    this.data.taskId = options.task_id;
   },
   onReady() {
     dd.createSelectorQuery()
@@ -26,7 +28,6 @@ Page({
         this.data.canvasWidth = ret[0].width;
         this.data.canvasHeight = ret[0].height;
       });
-
 
     context = dd.createCanvasContext('canvas');
     context.beginPath()
@@ -79,31 +80,38 @@ Page({
       return;
     }
 
+    this.setData({ submitting: true });
     let { taskId, comment, approve } = this.data;
-
     let store = dd.getStorageSync({ key: "access_token" });
 
     this.uploadFile().then((res) => {
-      console.log(res);
       dd.httpRequest({
-        url: `http://192.168.1.187:3000/handsign/handsign/${taskId}/complete`,
+        url: `${host}/handsign/dianfu/${taskId}/complete`,
         method: 'POST',
         headers: {
           "Authorization": store.data,
-          'Content-Type': 'application/json'
+          "Content-Type": 'application/json;charset=utf-8'
         },
-        data: { taskId, comment, approve },
+        data: JSON.stringify({ taskId, comment, approve }),
         dataType: 'json',
-        success: function (res) {
+        success: (res) => {
           console.log('签批已提交');
+          // 缓存已签批状态，更新详情和列表数据
+          dd.setStorage({
+            key: 'signed',
+            data: { taskId: taskId }
+          });
           dd.navigateBack();
         },
-        fail: function (res) {
-          console.log(res)
+        fail: (res) => {
+          this.setData({ submitting: false });
+          dd.showToast({ type: 'exception', content: '提交失败' });
+          console.log('签批提交失败：' + JSON.stringify(res));
         }
       });
     }).catch((res) => {
-      console.log(res);
+      this.setData({ submitting: false });
+      dd.showToast({ type: 'fail', content: res });
     });
   },
   uploadFile() {
@@ -111,23 +119,28 @@ Page({
       let { taskId } = this.data;
       context.toTempFilePath({
         success(res) {
-          console.log(res);
+          console.log(JSON.stringify(res));
           let store = dd.getStorageSync({ key: "access_token" });
           dd.uploadFile({
-            url: `http://192.168.1.187:3000/handsign/handsign/${taskId}/attachment`,
+            url: `${host}/handsign/dianfu/${taskId}/attachment`,
             fileType: 'image',
             fileName: 'file',
-            filePath: res.apFilePath,
+            filePath: res.apFilePath || res.filePath,
             headers: {
-              "Authorization": store.data,
+              "Authorization": store.data
             },
             success: (res) => {
-              resolve(res);
-              console.log('success');
+              console.log('签名：' + JSON.stringify(res))
+              if (res.statusCode === 200) {
+                resolve(res);
+              }
+              else {
+                reject('上传失败');
+              }
             },
             fail: (res) => {
-              reject('上传失败');
-              console.log("fail:");
+              console.log(JSON.stringify(res))
+              reject('上传错误');
             },
           });
         }

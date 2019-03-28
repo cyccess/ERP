@@ -1,3 +1,6 @@
 {
-  "allowsBounceVertical": "NO"
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "loading": "/components/loading/loading"
+  }
 }

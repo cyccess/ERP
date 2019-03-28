@@ -1,9 +1,9 @@
-<import src="/util/modal/index.axml"/>
 
-<view class="page">
+<loading a:if="{{loading}}"></loading>
+<view class="page" a:if="{{!loading}}">
   <view class="adv-section">
     <view class="title">
-      <view class="name">{{proccessInfo.realName +'的垫付申请'}}</view>
+      <view class="name">{{proccessInfo.processTitle}}</view>
       <view class="state">{{currentTask.statusDesc}}</view>
     </view>
     <view class="detail">
@@ -58,7 +58,7 @@
     </view>
   </view>
 
-  <view class="sign-steps">
+  <view class="sign-steps" a:if="{{tasks.length>1}}">
     <view class="sign-step {{index===tasks.length-1?'is-flex':''}}" a:for="{{tasks}}" a:if="{{item.taskInfo}}">
       <view class="sign-step_head">
         <view class="sign-step_line"></view>
@@ -75,30 +75,36 @@
     </view>
   </view>
 
-  <view class="adv-attachment" hidden="true">
+  <view class="adv-attachment" a:if="{{proccessInfo.attachments}}">
     <view class="adv-attachment-head">附件</view>
-    <view class="adv-file">
-      <view class="adv-file-name">201902210012.pdf</view>
+    <view class="adv-file" a:for="{{proccessInfo.attachments}}">
+      <view class="adv-file-name">{{item.title+'.pdf'}}</view>
       <view class="adv-file-download">
-          <button type="default" size="mini" plain onTap="previewPdf">查看</button>
-      </view>
-    </view>
-     <view class="adv-file">
-      <view class="adv-file-name">201902210012.pdf</view>
-      <view class="adv-file-download">
-          <button type="default" size="mini" plain onTap="previewPdf">查看</button>
+          <button type="default" size="mini" plain onTap="previewPdf" data-attachment="{{item}}">查看</button>
       </view>
     </view>
   </view>
 
   <view style="height:48px"></view>
 
-  <view class="adv-action-wrapper">
+  <view class="adv-action-wrapper" a:if="{{currentTask.status=='CREATED'||currentTask.status=='ASSIGNED'}}">
     <view class="adv-actions">
-      <button type="default" onTap="refuseTap">拒绝</button>
+      <button type="default" onTap="onOpenModalTap">拒绝</button>
       <navigator url="/pages/advance-sign/advance-sign?task_id={{taskId}}" redirect>
-        <button type="primary" onTap="onSignTap">同意</button>
+        <button type="primary">同意</button>
       </navigator>
     </view>
   </view>
 </view>
+
+<import src="/util/modal/index.axml"/>
+
+<template
+        is="modal"
+        key="modal"
+        data="{{title:'退回申请', submitting, hidden: hidden, onChildItemTap: arr.onChildItemTap, animMaskData, animContentData}}"
+>
+  <view style="border-bottom:1px solid #f1f1f1;">
+    <textarea placeholder="输入审批理由" maxlength="100" style="height:100px;" onInput="onCommentInput" />
+  </view>
+</template>

@@ -1,6 +1,6 @@
 
 import moment from '../../util/moment.min'
-
+import { host } from '../../config';
 
 Page({
   data: {
@@ -8,10 +8,23 @@ Page({
     height: 0,
     inkBar: 0,
     currentTabIndex: 0,
-    page: 1,
     list: [],
+    page: 1,
     isLoading: false,
-    noData: false
+    noData: ''
+  },
+  onShow() {
+    let { data } = dd.getStorageSync({ key: 'signed' });
+    // 如果有已签批的，刷新列表数据
+    if (data) {
+      let index = this.data.list.findIndex((item) => { return item.id == data.taskId })
+      if (index > -1) {
+        this.data.list.splice(index, 1);
+      }
+
+      dd.removeStorage({ key: 'signed' });
+      this.setData({ list: this.data.list });
+    }
   },
   onLoad() {
     this.loadData();
@@ -26,67 +39,64 @@ Page({
       });
   },
   onReachBottom() {
-    // console.log('加载更多...')
-
-    // if (this.data.currentTabIndex == 0) {
-    //   this.data.page += 1;
-    //   this.loadData();
-    // }
-  },
-  loadData() {
     if (this.data.noData) return;
 
-    let store = dd.getStorageSync({ key: "access_token" });
+    this.data.page += 1;
+    this.loadData(this.data.currentTabIndex);
+  },
+  loadData(type = 0) {
     this.setData({ isLoading: true });
+
+    let store = dd.getStorageSync({ key: "access_token" });
+    let url = `${host}/workflowmanagement/tasks/handsign/dianfu?page=${this.data.page}&size=10`;
+
+    // 已签批
+    if (type == 1) {
+      url = `${host}/handsign/dianfu/complete?page=${this.data.page}&size=10`;
+    }
+
     dd.httpRequest({
       headers: { "Authorization": store.data },
-      url: `http://192.168.1.187:3000/workflowmanagement/tasks/handsign?page=${this.data.page}&size=10`,
-      method: 'GET',
-      dataType: 'json',
+      url: url,
       success: (res) => {
-        console.log(res)
-        if (res.status === 200 && res.data) {
-          let newPage = res.data.content.map(item => {
-            return {
-              id: item.id,
-              processTitle: item.processTitle,
-              date: moment.format(item.createdDate, 'YYYY-MM-DD'),
-              status: item.status
-            };
-          });
-
-          let list = this.data.list.concat(newPage);
-
-          let noMore = false;
-          if (res.data.numberOfElements < 10) {
-            noMore = true;
-          }
-
-          this.setData({ list, noData: noMore });
-        }
-      },
-      fail: function (res) {
-        console.log('请求出错')
-        console.log(res)
-      },
-      complete: (res) => {
         setTimeout(() => {
           this.setData({ isLoading: false });
-        })
+          if (res.status === 200 && res.data.code === 0 && res.data.data) {
+            let newPage = res.data.data.content.map(item => {
+              let date = type == 0 ? item.createdDate : item.addTime;
+              return {
+                id: item.id,
+                processTitle: item.processTitle || '审批申请',
+                date: moment.format(date, 'YYYY-MM-DD'),
+                status: item.status
+              };
+            });
+
+            if (newPage.length > 0) {
+              let list = this.data.list.concat(newPage);
+              this.setData({ list });
+            }
+
+            if (newPage.length < 10) {
+              this.setData({ noData: 'noMoreData' });
+            }
+
+            if (this.data.list.length === 0)
+              this.setData({ noData: '没有审批单' });
+          }
+        }, 1000)
+      },
+      fail: (res) => {
+        this.setData({ isLoading: false, noData: '请求出错' });
+        console.log('请求出错:' + JSON.stringify(res));
       }
     });
   },
   onSelectTab(e) {
     var index = e.target.dataset.index;
+    if (this.data.currentTabIndex == index) return;
     var bar = index * this.data.itemWidth;
-    this.setData({ currentTabIndex: index, inkBar: bar });
-  },
-  lower() {
-    console.log('加载更多...')
-
-    if (this.data.currentTabIndex == 0) {
-      this.data.page += 1;
-      this.loadData();
-    }
-  },
+    this.setData({ currentTabIndex: index, inkBar: bar, page: 1, noData: '', list: [] });
+    this.loadData(index);
+  }
 });

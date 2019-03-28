@@ -1,3 +1,5 @@
+import { host } from './config';
+
 App({
   onLaunch(options) {
     // 第一次打开
@@ -6,26 +8,27 @@ App({
 
     dd.getAuthCode({
       success: function (res) {
-        console.log(res);
+        console.log(JSON.stringify(res));
         dd.httpRequest({
-          url: `http://192.168.1.187:3000/opentalk/gettoken?code=${res.authCode}&app=erp`,
+          url: `${host}/dingtalk/gettoken?code=${res.authCode}&app=erp`,
           method: 'GET',
           dataType: 'json',
           success: function (res) {
-            console.log(res)
+            // console.log(JSON.stringify(res));
             dd.setStorage({
               key: 'access_token',
-              data: 'Bearer ' + res.data.KeycloakToken
+              data: 'Bearer ' + res.data.data.KeycloakToken
             });
           },
           fail: function (res) {
-            dd.alert("accessToken获取失败")
+            dd.alert({
+              content: 'accessToken获取失败'
+            })
           }
         });
       },
       fail: function (err) {
         console.log(err);
-        dd.alert("免登授权码获取失败")
       }
     });
   },

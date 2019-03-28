@@ -1,9 +1,0 @@
-<view class="canvas-wrapper">
-  <canvas class="canvas" id="canvas" style="height:200px" onTouchStart="canvasStart" onTouchMove="canvasMove" onTouchEnd="canvasEnd" onTouchCancel="canvasEnd">
-  </canvas>
-
-  <view class="canvans-reset">
-    <button type="default" size="mini" plain onTap="cleardraw">清除重写</button>
-    <button type="primary" size="mini" onTap="cleardraw">确定提交</button>
-  </view>
-</view>

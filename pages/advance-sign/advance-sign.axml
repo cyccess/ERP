@@ -5,7 +5,7 @@
       <textarea class="txt-reason" placeholder="请输入签批理由" onInput="getComment" />
 
       <button type="default" plain onTap="cleardraw" class="btnReset">清除重写</button>
-      <button type="primary" onTap="submit" class="btnSubmit">确定提交</button>
+      <button type="primary" onTap="submit" class="btnSubmit" disabled="{{submitting}}">确定提交</button>
     </view>
 
     <view class="canvas-con">

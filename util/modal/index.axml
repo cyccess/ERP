@@ -1,21 +1,19 @@
 <template name="modal">
-    <view class="modal" a:if="{{!hidden}}" key="modal">
-        <view class="modal-mask" animation="{{animMaskData}}"/>
-        <view class="modal-container" animation="{{animContentData}}">
-            <view class="modal-close" onTap="onModalCloseTap">×</view>
-            <view class="modal-content">
-                <view class="grid-child">
-                    <view class="grid-child-title">
-                        <text class="c-title">签字确认</text>
-                    </view>
-                    <view class="grid-child-entitle">
-                        <text class="c-entitle">test</text>
-                    </view>
-                    <view class="clist">
-                        <slot></slot>
-                    </view>
-                </view>
-            </view>
-        </view>
+  <view class="modal" a:if="{{!hidden}}" key="modal">
+    <view class="modal-mask" animation="{{animMaskData}}"></view>
+    <view class="modal-container" animation="{{animContentData}}">
+      <view class="model-header">
+        <view class="modal-title">{{title}}</view>
+        <view class="modal-close" onTap="onModalCloseTap">×</view>
+      </view>
+      <view class="modal-content">
+        <slot></slot>
+      </view>
+      <view class="modal-footer">
+        <slot name="footer">
+          <button type="primary" onTap="onConfirmTap" disabled="{{submitting}}">确认提交</button>
+        </slot>
+      </view>
     </view>
+  </view>
 </template>

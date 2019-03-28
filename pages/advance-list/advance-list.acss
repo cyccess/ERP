@@ -98,7 +98,3 @@
   font-size: 12px;
   color: rgba(25, 31, 37, .7);
 }
-
-.scroll-view {
-  
-}
