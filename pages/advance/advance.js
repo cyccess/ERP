@@ -21,6 +21,7 @@ Page({
   onShow() {
     // 页面显示
     let { data } = dd.getStorageSync({ key: 'signed' });
+    console.log(data)
     if (data) {
       this.loadData();
     }

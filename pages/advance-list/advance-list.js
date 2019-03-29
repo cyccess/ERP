@@ -17,7 +17,7 @@ Page({
     let { data } = dd.getStorageSync({ key: 'signed' });
     // 如果有已签批的，刷新列表数据
     if (data) {
-      let index = this.data.list.findIndex((item) => { return item.id == data.taskId })
+      let index = this.data.list.findIndex(item => { return item.taskId == data.taskId })
       if (index > -1) {
         this.data.list.splice(index, 1);
       }
