@@ -22,6 +22,10 @@ Page({
         this.data.list.splice(index, 1);
       }
 
+      if (this.data.list.length === 0) {
+        this.setData({ noData: '没有审批单' });
+      }
+      
       dd.removeStorage({ key: 'signed' });
       this.setData({ list: this.data.list });
     }
@@ -66,7 +70,7 @@ Page({
               let date = type == 0 ? item.createdDate : item.addTime;
               return {
                 id: item.id,
-                processTitle: item.processTitle || '审批申请',
+                processTitle: item.processTitle || item.name,
                 date: moment.format(date, 'YYYY-MM-DD'),
                 status: item.status
               };

@@ -34,7 +34,7 @@
 }
 
 .d-label-txt {
-  color: rgba(25, 31, 37, .72);
+  color: rgba(25, 31, 37, .56);
 }
 
 .d-value {

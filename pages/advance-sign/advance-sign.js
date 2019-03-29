@@ -129,6 +129,7 @@ Page({
             headers: {
               "Authorization": store.data
             },
+            formData: { name: 'xiaojiejie' },
             success: (res) => {
               console.log('签名：' + JSON.stringify(res))
               if (res.statusCode === 200) {
