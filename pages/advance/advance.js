@@ -45,9 +45,9 @@ Page({
           let tasks = data.tasks;
           tasks.forEach(item => {
 
-            item.createdDate = moment.format(item.createdDate, 'MM.DD hh:mm') || '';
+            item.createdDate = moment.formatDate(item.createdDate, 'MM.DD hh:mm') || '';
 
-            item.complatedDate = moment.format(item.completedDate, 'MM.DD hh:mm') || '';
+            item.complatedDate = moment.formatDate(item.completedDate, 'MM.DD hh:mm') || '';
 
             if (data.variables) {
               item.taskInfo = data.variables.find(v => v.name === 'taskInfo');
@@ -74,7 +74,7 @@ Page({
 
           const model = JSON.parse(proccessInfo.variables.recordApply);
 
-          model.addTime = moment.format(model.addTime, 'YYYY-MM-DD hh:mm') || '';
+          model.addTime = moment.formatDate(model.addTime, 'YYYY-MM-DD hh:mm') || '';
 
           // 浙商垫付金额
           model.applyEscrowAmount = numeral(model.applyEscrowCapital + model.applyEscrowInterest).format('0,0.00');
@@ -127,7 +127,7 @@ Page({
       success: (res) => {
         console.log('签批已提交:' + JSON.stringify(res));
         this.onModalCloseTap();
-        dd.setStorage({
+        dd.setStorageSync({
           key: 'signed',
           data: { taskId: taskId }
         });

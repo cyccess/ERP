@@ -14,7 +14,7 @@
   <view class="m-tabs-con">
       <view class="m-tab-pane" a:if="{{currentTabIndex == 0}}">
         <view class="m-adv-item" a:for="{{list}}">
-          <navigator url="/pages/advance/advance?id={{item.id}}">
+          <navigator url="/pages/advance/advance?id={{item.taskId}}">
             <view class="m-adv-name">{{item.processTitle}}</view>
             <view class="m-adv-date">申请时间:{{item.date}}</view>
             <view class="m-adv-status">待审批</view>
@@ -24,7 +24,7 @@
 
       <view class="m-tab-pane" a:if="{{currentTabIndex == 1}}">
         <view class="m-adv-item" a:for="{{list}}">
-            <navigator url="/pages/advance/advance?id={{item.id}}">
+            <navigator url="/pages/advance/advance?id={{item.taskId}}">
               <view class="m-adv-name">{{item.processTitle}}</view>
               <view class="m-adv-date">申请时间:{{item.date}}</view>
               <view class="m-adv-status green">审批通过</view>

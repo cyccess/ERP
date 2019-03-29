@@ -25,7 +25,7 @@ Page({
       if (this.data.list.length === 0) {
         this.setData({ noData: '没有审批单' });
       }
-      
+
       dd.removeStorage({ key: 'signed' });
       this.setData({ list: this.data.list });
     }
@@ -67,11 +67,11 @@ Page({
           this.setData({ isLoading: false });
           if (res.status === 200 && res.data.code === 0 && res.data.data) {
             let newPage = res.data.data.content.map(item => {
-              let date = type == 0 ? item.createdDate : item.addTime;
+              let dateStr = type == 0 ? item.createdDate : item.addTime;
               return {
-                id: item.id,
+                taskId: item.taskId,
                 processTitle: item.processTitle || item.name,
-                date: moment.format(date, 'YYYY-MM-DD'),
+                date: moment.formatDate(dateStr, 'YYYY-MM-DD'),
                 status: item.status
               };
             });
@@ -88,7 +88,7 @@ Page({
             if (this.data.list.length === 0)
               this.setData({ noData: '没有审批单' });
           }
-        }, 1000)
+        }, 500)
       },
       fail: (res) => {
         this.setData({ isLoading: false, noData: '请求出错' });

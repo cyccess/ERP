@@ -58,7 +58,8 @@
     </view>
   </view>
 
-  <view class="sign-steps" a:if="{{tasks.length>1}}">
+  <view class="sign-steps">
+
     <view class="sign-step {{index===tasks.length-1?'is-flex':''}}" a:for="{{tasks}}" a:if="{{item.taskInfo}}">
       <view class="sign-step_head">
         <view class="sign-step_line"></view>

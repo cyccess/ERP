@@ -97,7 +97,7 @@ Page({
         success: (res) => {
           console.log('签批已提交');
           // 缓存已签批状态，更新详情和列表数据
-          dd.setStorage({
+          dd.setStorageSync({
             key: 'signed',
             data: { taskId: taskId }
           });
